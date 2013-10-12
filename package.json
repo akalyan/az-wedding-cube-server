@@ -1,0 +1,6 @@
+{
+  "name": "az-wedding-cube-server",
+  "dependencies": {
+    "cube": "~0.2.12"
+  }
+}
