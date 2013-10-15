@@ -3,6 +3,10 @@ server {
   server_name  <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
   access_log  <%= node[:nginx][:log_dir] %>/<%= @application[:domains].first %>.access.log;
 
+  location /cube/ {
+    proxy_pass http://cube.atishkalyan.com;
+  }
+
   location / {
     root   <%= @application[:absolute_document_root] %>;
     index  index.html index.htm index.php;
@@ -29,10 +33,6 @@ server {
     proxy_pass http://api.atishkalyan.com;
   }
 
-  location /cube {
-    proxy_pass http://cube.atishkalyan.com;
-  }
-   
 }
 
 <% if @application[:ssl_support] %>
