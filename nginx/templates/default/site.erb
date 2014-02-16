@@ -1,6 +1,6 @@
 server {
   listen   80;
-  return 301 https://beta.zyanyaweds.atishkalyan.com/$request_uri;
+  return 301 https://<%= node[:nginx][:server] %>$request_uri;
 }
 
 <% if @application[:ssl_support] %>
